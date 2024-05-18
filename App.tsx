@@ -6,7 +6,7 @@ import ListingDetailsScreen from './app/screen/ListingDetailsScreen'
 import ViewImageScreen from './app/screen/ViewImageScreen'
 import MessagesScreen from './app/screen/MessagesScreen'
 import Icon from './app/components/Icon';
-import ListItem from './app/components/ListItem';
+import ListItem from './app/components/lists/ListItem';
 import AccountScreen from './app/screen/AccountScreen';
 import ListingsScreen from './app/screen/ListingsScreen';
 import AppTextInput from './app/components/AppTextInput';
