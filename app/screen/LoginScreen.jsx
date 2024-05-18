@@ -7,10 +7,10 @@ import Screen from '../components/Screen';
 import AppTextInput from '../components/AppTextInput';
 import AppButton from '../components/AppButton';
 import AppText from '../components/AppText';
-import ErrorMessage from '../components/ErrorMessage';
-import AppFormField from '../components/AppFormField';
-import SubmitButton from '../components/SubmitButton';
-import AppForm from '../components/AppForm';
+import ErrorMessage from '../components/forms/ErrorMessage';
+import AppFormField from '../components/forms/AppFormField';
+import SubmitButton from '../components/forms/SubmitButton';
+import AppForm from '../components/forms/AppForm';
 
 const Logo = require('../assets/logo.png');
 
