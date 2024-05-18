@@ -4,7 +4,7 @@ import React from 'react'
 const Screen = ({ children, style }) => {
   return (
     <SafeAreaView style={[styles.screen, style]}>
-      <View>
+      <View style={[styles.view, style]}>
         {children}
       </View>
     </SafeAreaView>
@@ -17,6 +17,9 @@ const styles = StyleSheet.create({
   screen: {
     // paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
     // flex: 1,
+    height: '100%'
+  },
+  view: {
     height: '100%'
   }
 })

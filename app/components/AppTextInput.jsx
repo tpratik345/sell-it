@@ -4,9 +4,9 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 
 import defaultStyles from '../config/defaultStyles'
 
-const AppTextInput = ({ icon, ...otherProps }) => {
+const AppTextInput = ({ icon, width='100%', ...otherProps }) => {
     return (
-        <View style={styles.container}>
+        <View style={[styles.container, { width }]}>
             { icon && <MaterialCommunityIcons name={icon} size={20} color={defaultStyles.colors.medium} style={styles.icon}/> }
             <TextInput
                 style={defaultStyles.text}
@@ -25,7 +25,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         backgroundColor: defaultStyles.colors.light,
         borderRadius: 35,
-        width: '100%',
         padding: 15,
         marginVertical: 10
     },

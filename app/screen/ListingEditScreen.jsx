@@ -32,8 +32,8 @@ const ListingEditScreen = () => {
                 onSubmit={(value) => console.log(value)}
             >
                 <AppFormField maxLength={255} name={'title'} placeholder={'Title'} />
-                <AppFormField keyboardType='numeric' maxLength={8} name={'price'} placeholder={'Price'} />
-                <AppFormPicker items={categories} name='category' placeholder={'Category'} />
+                <AppFormField keyboardType='numeric' maxLength={8} name={'price'} width={'50%'} placeholder={'Price'} />
+                <AppFormPicker items={categories} name='category' placeholder={'Category'} width={'50%'} />
                 <AppFormField maxLength={255} name={'description'} placeholder={'Description'} numberOfLines={3} multiline={true} />
             </AppForm>
         </Screen>

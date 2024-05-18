@@ -29,7 +29,7 @@ const App = () => {
         {/* <WelcomeScreen /> */}
         {/* <ListingDetailsScreen /> */}
         {/* <ViewImageScreen /> */}
-        <MessagesScreen />
+        {/* <MessagesScreen /> */}
         {/* <ListItem
           title={'Pratik Tarkasband'}
           // subTitle={'5 Listings'}
@@ -44,13 +44,13 @@ const App = () => {
         /> */}
         {/* <AccountScreen /> */}
         {/* <ListingsScreen /> */}
-        {/* <AppTextInput icon={'email'} placeHolder="Username"/>
+        {/* <AppTextInput icon={'email'} placeHolder="Username" />
         <AppPicker
             selectedItem={category}
             onSelectItem={(item: any) => setCategory(item)}
             items={categories} icon={'apps'} placeholder={'Category'} /> */}
         {/* <LoginScreen /> */}
-        {/* <ListingEditScreen /> */}
+        <ListingEditScreen />
       </View>
     </GestureHandlerRootView>
   )

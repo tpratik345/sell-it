@@ -6,13 +6,13 @@ import defaultStyles from '../config/defaultStyles';
 import Screen from './Screen';
 import PickerItem from './PickerItem';
 
-const AppPicker = ({ icon, items, placeholder, selectedItem, onSelectItem }) => {
+const AppPicker = ({ icon, items, placeholder, width='100%', selectedItem, onSelectItem }) => {
     const [modalVisible, setModalVisible] = useState(false);
 
     return (
         <>
             <TouchableWithoutFeedback onPress={() => setModalVisible(true)}>
-                <View style={styles.container}>
+                <View style={[styles.container, { width }]}>
                     {icon &&
                         <MaterialCommunityIcons
                             name={icon}
@@ -62,7 +62,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         backgroundColor: defaultStyles.colors.light,
         borderRadius: 25,
-        width: '100%',
         padding: 15,
         marginVertical: 10
     },
