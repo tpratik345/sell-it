@@ -29,13 +29,13 @@ const App = () => {
         {/* <WelcomeScreen /> */}
         {/* <ListingDetailsScreen /> */}
         {/* <ViewImageScreen /> */}
-        {/* <MessagesScreen /> */}
+        <MessagesScreen />
         {/* <ListItem
           title={'Pratik Tarkasband'}
           // subTitle={'5 Listings'}
           IconComponent={<Icon
             name='email'
-            size={50} />} image={undefined} subTitle={undefined} onPress={undefined} renderRightActions={undefined}            /> */}
+            size={50} />} image={undefined} subTitle={undefined} onPress={undefined} renderRightActions={undefined} /> */}
         {/* <Icon 
           name='email'
           size={100}
@@ -50,7 +50,7 @@ const App = () => {
             onSelectItem={(item: any) => setCategory(item)}
             items={categories} icon={'apps'} placeholder={'Category'} /> */}
         {/* <LoginScreen /> */}
-        <ListingEditScreen />
+        {/* <ListingEditScreen /> */}
       </View>
     </GestureHandlerRootView>
   )
