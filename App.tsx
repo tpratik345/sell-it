@@ -12,12 +12,13 @@ import ListingsScreen from './app/screen/ListingsScreen';
 import AppTextInput from './app/components/AppTextInput';
 import AppPicker from './app/components/AppPicker';
 import LoginScreen from './app/screen/LoginScreen';
+import ListingEditScreen from './app/screen/ListingEditScreen';
 
-const categories = [
-  { label: 'Furniture', value: 1},
-  { label: 'Clothing', value: 2},
-  { label: 'Cameras', value: 3},
-]
+// const categories = [
+//   { label: 'Furniture', value: 1},
+//   { label: 'Clothing', value: 2},
+//   { label: 'Cameras', value: 3},
+// ]
 
 const App = () => {
   const [category, setCategory] = useState('');
@@ -48,7 +49,8 @@ const App = () => {
             selectedItem={category}
             onSelectItem={(item: any) => setCategory(item)}
             items={categories} icon={'apps'} placeholder={'Category'} /> */}
-        <LoginScreen />
+        {/* <LoginScreen /> */}
+        <ListingEditScreen />
       </View>
     </GestureHandlerRootView>
   )
