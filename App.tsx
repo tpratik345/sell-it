@@ -1,118 +1,57 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
+import { View, Text } from 'react-native'
+import React, { useState } from 'react'
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import WelcomeScreen from './app/screen/WelcomeScreen'
+import ListingDetailsScreen from './app/screen/ListingDetailsScreen'
+import ViewImageScreen from './app/screen/ViewImageScreen'
+import MessagesScreen from './app/screen/MessagesScreen'
+import Icon from './app/components/Icon';
+import ListItem from './app/components/ListItem';
+import AccountScreen from './app/screen/AccountScreen';
+import ListingsScreen from './app/screen/ListingsScreen';
+import AppTextInput from './app/components/AppTextInput';
+import AppPicker from './app/components/AppPicker';
+import LoginScreen from './app/screen/LoginScreen';
 
-import React from 'react';
-import type {PropsWithChildren} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
+const categories = [
+  { label: 'Furniture', value: 1},
+  { label: 'Clothing', value: 2},
+  { label: 'Cameras', value: 3},
+]
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-
-type SectionProps = PropsWithChildren<{
-  title: string;
-}>;
-
-function Section({children, title}: SectionProps): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-  return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
-  );
-}
-
-function App(): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
+const App = () => {
+  const [category, setCategory] = useState('');
 
   return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
-        </View>
-      </ScrollView>
-    </SafeAreaView>
-  );
+    <GestureHandlerRootView>
+      <View>
+        {/* <WelcomeScreen /> */}
+        {/* <ListingDetailsScreen /> */}
+        {/* <ViewImageScreen /> */}
+        {/* <MessagesScreen /> */}
+        {/* <ListItem
+          title={'Pratik Tarkasband'}
+          // subTitle={'5 Listings'}
+          IconComponent={<Icon
+            name='email'
+            size={50} />} image={undefined} subTitle={undefined} onPress={undefined} renderRightActions={undefined}            /> */}
+        {/* <Icon 
+          name='email'
+          size={100}
+          // backgroundColor='red'
+          // iconColor='white'
+        /> */}
+        {/* <AccountScreen /> */}
+        {/* <ListingsScreen /> */}
+        {/* <AppTextInput icon={'email'} placeHolder="Username"/>
+        <AppPicker
+            selectedItem={category}
+            onSelectItem={(item: any) => setCategory(item)}
+            items={categories} icon={'apps'} placeholder={'Category'} /> */}
+        <LoginScreen />
+      </View>
+    </GestureHandlerRootView>
+  )
 }
 
-const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-});
-
-export default App;
+export default App
