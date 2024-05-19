@@ -6,7 +6,7 @@ import AppText from './AppText';
 const CategoryPickerItem = ({ item, onPress }) => {
     return (
         <View style={styles.container}>
-            <TouchableOpacity style={styles.new} onPress={onPress}>
+            <TouchableOpacity style={styles.detailsContainer} onPress={onPress}>
                 <Icon backgroundColor={item.backgroundColor} name={item.icon} size={80} />
                 <AppText style={styles.label}>{item.label}</AppText>
             </TouchableOpacity>
@@ -17,7 +17,7 @@ const CategoryPickerItem = ({ item, onPress }) => {
 export default CategoryPickerItem
 
 const styles = StyleSheet.create({
-    new: {
+    detailsContainer: {
         textAlign: 'center',
         alignItems: 'center',
         width: '100%'
