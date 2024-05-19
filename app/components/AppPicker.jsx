@@ -6,7 +6,7 @@ import defaultStyles from '../config/defaultStyles';
 import Screen from './Screen';
 import PickerItem from './PickerItem';
 
-const AppPicker = ({ icon, items, placeholder, width='100%', selectedItem, onSelectItem }) => {
+const AppPicker = ({ icon, items, placeholder, width = '100%', numberOfColumns = 1, selectedItem, onSelectItem, PickerItemComponent = PickerItem }) => {
     const [modalVisible, setModalVisible] = useState(false);
 
     return (
@@ -20,7 +20,7 @@ const AppPicker = ({ icon, items, placeholder, width='100%', selectedItem, onSel
                             color={defaultStyles.colors.medium}
                             style={styles.icon}
                         />}
-                    { selectedItem
+                    {selectedItem
                         ? <AppText style={styles.text}>{selectedItem.label}</AppText>
                         : <AppText style={styles.placeholder}>{placeholder}</AppText>
                     }
@@ -35,12 +35,13 @@ const AppPicker = ({ icon, items, placeholder, width='100%', selectedItem, onSel
             <Modal visible={modalVisible} animationType='slide'>
                 <Screen>
                     <Button title='Close' onPress={() => setModalVisible(false)} />
-                    <FlatList 
+                    <FlatList
                         data={items}
+                        numColumns={numberOfColumns}
                         keyExtractor={item => item.value.toString()}
-                        renderItem={({item}) => 
-                            <PickerItem 
-                                label={item.label}
+                        renderItem={({ item }) =>
+                            <PickerItemComponent
+                                item={item}
                                 onPress={() => {
                                     setModalVisible(false);
                                     onSelectItem(item);
