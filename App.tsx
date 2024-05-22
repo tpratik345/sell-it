@@ -1,5 +1,5 @@
-import { View, Text } from 'react-native'
-import React, { useState } from 'react'
+import { View, Text, Image } from 'react-native'
+import React, { useEffect, useState } from 'react'
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import WelcomeScreen from './app/screen/WelcomeScreen'
 import ListingDetailsScreen from './app/screen/ListingDetailsScreen'
@@ -14,6 +14,11 @@ import AppPicker from './app/components/AppPicker';
 import LoginScreen from './app/screen/LoginScreen';
 import ListingEditScreen from './app/screen/ListingEditScreen';
 
+import * as ImagePicker from 'expo-image-picker';
+import AppButton from './app/components/AppButton';
+import ImageInput from './app/components/ImageInput';
+import ImageInputList from './app/components/lists/ImageInputList';
+
 // const categories = [
 //   { label: 'Furniture', value: 1},
 //   { label: 'Clothing', value: 2},
@@ -21,7 +26,16 @@ import ListingEditScreen from './app/screen/ListingEditScreen';
 // ]
 
 const App = () => {
-  const [category, setCategory] = useState('');
+  // const [category, setCategory] = useState('');
+  // const [imageUris, setImageUris] = useState([]);
+
+  // const handleRemove = (uri) => {
+  //   setImageUris(imageUris.filter(imageUri => imageUri !== uri))
+  // }
+
+  // const handleAdd = (uri) => {
+  //   setImageUris([...imageUris, uri])
+  // }
 
   return (
     <GestureHandlerRootView>
@@ -51,9 +65,17 @@ const App = () => {
             items={categories} icon={'apps'} placeholder={'Category'} /> */}
         {/* <LoginScreen /> */}
         <ListingEditScreen />
+        {/* <AppButton title={'Select Image'} onPress={selectImage} />
+        {imageUri && <Image resizeMode='contain' source={{ uri: imageUri }} style={{ width: '50%', height: '50%' }}/>} */}
+        {/* <ImageInputList
+          imageUris={imageUris}
+          onRemoveImage={handleRemove}
+          onAddImage={handleAdd}
+        /> */}
       </View>
     </GestureHandlerRootView>
   )
 }
 
 export default App
+
