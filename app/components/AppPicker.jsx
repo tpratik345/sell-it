@@ -6,7 +6,8 @@ import defaultStyles from '../config/defaultStyles';
 import Screen from './Screen';
 import PickerItem from './PickerItem';
 
-const AppPicker = ({ icon, items, placeholder, width = '100%', numberOfColumns = 1, selectedItem, onSelectItem, PickerItemComponent = PickerItem }) => {
+const AppPicker = ({ icon, items, placeholder, width = '100%',
+    numberOfColumns = 1, selectedItem, onSelectItem, PickerItemComponent = PickerItem }) => {
     const [modalVisible, setModalVisible] = useState(false);
 
     return (
