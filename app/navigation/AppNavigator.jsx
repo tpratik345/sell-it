@@ -7,6 +7,7 @@ import ListingEditScreen from '../screen/ListingEditScreen';
 import AccountScreen from '../screen/AccountScreen';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import FeedNavigator from './FeedNavigator';
+import AccountNavigator from './AccountNavigator';
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -37,8 +38,8 @@ const AppNavigator = () => {
                 }}
             />
             <Tab.Screen
-                name='Account'
-                component={AccountScreen}
+                name='AccountNavigator'
+                component={AccountNavigator}
                 options={{
                     tabBarIcon: ({ color }) => (
                         <MaterialCommunityIcons name="account" color={color} size={26} />

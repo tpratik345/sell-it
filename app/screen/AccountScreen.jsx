@@ -18,11 +18,12 @@ const menuItems = [
         icon: {
             name: "email",
             backgroundColor: colors.secoondary
-        }
+        },
+        targetScreen: 'Messages'
     },
 ]
 
-const AccountScreen = () => {
+const AccountScreen = ({ navigation }) => {
     return (
         <Screen style={styles.screen}>
             <View style={styles.container}>
@@ -36,23 +37,27 @@ const AccountScreen = () => {
                 <FlatList
                     data={menuItems}
                     keyExtractor={item => item.title}
-                    renderItem={({item}) =>
+                    renderItem={({ item }) =>
                         <ListItem
                             title={item.title}
-                            IconComponent={<Icon 
-                                name={item.icon.name}
-                                size={30}
-                                backgroundColor={item.icon.backgroundColor}
-                            />}
+                            IconComponent={
+                                <Icon
+                                    name={item.icon.name}
+                                    size={30}
+                                    backgroundColor={item.icon.backgroundColor
+                                    }
+
+                                />}
+                            onPress={() => navigation.navigate(item.targetScreen)}
                         />
                     }
                     ItemSeparatorComponent={ListItemSeparator}
                 />
             </View>
-            <ListItem 
+            <ListItem
                 title={'Log Out'}
                 IconComponent={
-                    <Icon name={'logout'} backgroundColor='#ffe66d'/>
+                    <Icon name={'logout'} backgroundColor='#ffe66d' />
                 }
             />
         </Screen>
