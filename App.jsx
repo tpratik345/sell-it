@@ -5,6 +5,7 @@ import Screen from './app/components/Screen';
 import { NavigationContainer, useNavigation } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const Link = () => {
   const navigation = useNavigation();
@@ -31,7 +32,7 @@ const TweetDetails = ({ route }) => (
 )
 
 const Stack = createStackNavigator();
-const StackNavigator = () => (
+const FeedNavigator = () => (
   <Stack.Navigator
     screenOptions={{
       headerStyle: { backgroundColor: 'purple' },
@@ -50,12 +51,38 @@ const StackNavigator = () => (
   </Stack.Navigator>
 )
 
+const Account = () => (
+  <View>
+    <Text>Account</Text>
+  </View>
+)
+
 const Tab = createMaterialBottomTabNavigator();
 
 const TabNavigator = () => (
-  <Tab.Navigator>
-    <Tab.Screen name='Feed' component={Tweets}/>
-    <Tab.Screen name='FeedDetails' component={TweetDetails}/>
+  <Tab.Navigator
+    screenOptions={{
+      initialRouteName: "Feed",
+      activeColor: "#f0edf6",
+      inactiveColor: "#3e2465",
+    }}>
+    <Tab.Screen
+      name='Feed'
+      component={FeedNavigator}
+      options={{
+        tabBarIcon: ({ color }) => (
+          <MaterialCommunityIcons name="home" color={color} size={26} />
+        ),
+      }} />
+    <Tab.Screen
+      name='Account'
+      component={Account}
+      options={{
+        tabBarIcon: ({ color }) => (
+          <MaterialCommunityIcons name="bell" color={color} size={26} />
+        ),
+      }}
+    />
   </Tab.Navigator>
 )
 
