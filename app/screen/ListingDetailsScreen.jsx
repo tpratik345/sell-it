@@ -8,13 +8,15 @@ import { ListItem } from '../components/lists'
 const RedJacket = require('../assets/jacket.jpg')
 const UserIcon = require('../assets/user.png')
 
-const ListingDetailsScreen = () => {
+const ListingDetailsScreen = ({ route }) => {
+  const listing = route.params;
+
   return (
     <View>
-      <Image style={styles.image} source={RedJacket}/>
+      <Image style={styles.image} source={listing.image}/>
       <View style={styles.detailsContainer}>
-        <AppText style={styles.title}>Red Jacket For Sale</AppText>
-        <AppText style={styles.price}>$ 100</AppText>
+        <AppText style={styles.title}>{listing.title}</AppText>
+        <AppText style={styles.price}>{listing.price}</AppText>
         <View style={styles.userContainer}>
           <ListItem 
               image={UserIcon}
@@ -38,7 +40,7 @@ const styles = StyleSheet.create({
     height: 300
   },
   title: {
-    color: colors.white,
+    color: colors.black,
     fontSize: 24,
     fontWeight: '500',
   },

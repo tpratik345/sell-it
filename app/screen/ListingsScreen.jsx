@@ -25,7 +25,7 @@ const listings = [
     },
 ]
 
-const ListingsScreen = () => {
+const ListingsScreen = ({ navigation }) => {
     return (
         <Screen>
             <View style={styles.screen}>
@@ -37,6 +37,7 @@ const ListingsScreen = () => {
                             title={item.title}
                             subTitle={"$" + item.price}
                             image={item.image}
+                            onPress={() => navigation.navigate('ListingDetails', item)}
                         />
                     }
                 />

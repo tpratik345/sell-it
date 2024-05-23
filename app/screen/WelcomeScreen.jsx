@@ -3,29 +3,32 @@ import React from 'react'
 import colors from '../config/colors';
 import AppButton from '../components/AppButton';
 import AppText from '../components/AppText';
+import Screen from '../components/Screen';
 const WelcomeImage = require('../assets/welcome.jpg');
 const Logo = require('../assets/logo.png');
 
 const WelcomeScreen = ({ navigation }) => {
-  return (
-    <ImageBackground blurRadius={6} style={styles.background} source={WelcomeImage}>
-            {/* <AppText>I love react native</AppText> */}
-        <View style={styles.logoContainer}>
-            <Image style={styles.logo} source={Logo}/>
-            <AppText style={styles.tagLine}>Sell What You Don't Need</AppText>
-        </View>
-        <View style={styles.btnContainer}>
-            <AppButton title={'Login'} onPress={() => navigation.navigate('Login')} />
-            <AppButton title={'Register'} color='dangerBtn' onPress={() => navigation.navigate('Register')}/>
-        </View>
-    </ImageBackground>
-  )
+    return (
+        <Screen>
+            <ImageBackground blurRadius={6} style={styles.background} source={WelcomeImage}>
+                {/* <AppText>I love react native</AppText> */}
+                <View style={styles.logoContainer}>
+                    <Image style={styles.logo} source={Logo} />
+                    <AppText style={styles.tagLine}>Sell What You Don't Need</AppText>
+                </View>
+                <View style={styles.btnContainer}>
+                    <AppButton title={'Login'} onPress={() => navigation.navigate('Login')} />
+                    <AppButton title={'Register'} color='dangerBtn' onPress={() => navigation.navigate('Register')} />
+                </View>
+            </ImageBackground>
+        </Screen>
+    )
 }
 
 const styles = StyleSheet.create({
     background: {
         height: '100%',
-        width:  '100%',
+        width: '100%',
         alignItems: 'center'
     },
     btnContainer: {
