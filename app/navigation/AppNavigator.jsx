@@ -8,6 +8,7 @@ import AccountScreen from '../screen/AccountScreen';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import FeedNavigator from './FeedNavigator';
 import AccountNavigator from './AccountNavigator';
+import routes from './routes';
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -15,12 +16,12 @@ const AppNavigator = () => {
     return (
         <Tab.Navigator
             screenOptions={{
-                initialRouteName: "Feed",
+                initialRouteName: routes.FEED,
                 activeColor: colors.tabActiveColor,
                 inactiveColor: colors.tabInactiveColor,
             }}>
             <Tab.Screen
-                name='Feed'
+                name={routes.FEED}
                 component={FeedNavigator}
                 options={{
                     tabBarIcon: ({ color }) => (
@@ -29,16 +30,16 @@ const AppNavigator = () => {
                 }}
             />
             <Tab.Screen
-                name='ListingEdit'
+                name={routes.LISTING_EDIT}
                 component={ListingEditScreen}
                 options={{
                     tabBarIcon: ({ color }) => (
-                        <MaterialCommunityIcons name="plus" color={color} size={26} />
+                        <MaterialCommunityIcons name="plus-circle" color={color} size={26} />
                     ),
                 }}
             />
             <Tab.Screen
-                name='AccountNavigator'
+                name={routes.ACCOUNT_NAVIGATOR}
                 component={AccountNavigator}
                 options={{
                     tabBarIcon: ({ color }) => (
