@@ -1,78 +1,72 @@
-import { View, Text, Image } from 'react-native'
-import React, { useEffect, useState } from 'react'
+import { Button, Text, View } from 'react-native'
+import React from 'react'
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
-import WelcomeScreen from './app/screen/WelcomeScreen'
-import ListingDetailsScreen from './app/screen/ListingDetailsScreen'
-import ViewImageScreen from './app/screen/ViewImageScreen'
-import MessagesScreen from './app/screen/MessagesScreen'
-import Icon from './app/components/Icon';
-import ListItem from './app/components/lists/ListItem';
-import AccountScreen from './app/screen/AccountScreen';
-import ListingsScreen from './app/screen/ListingsScreen';
-import AppTextInput from './app/components/AppTextInput';
-import AppPicker from './app/components/AppPicker';
-import LoginScreen from './app/screen/LoginScreen';
-import ListingEditScreen from './app/screen/ListingEditScreen';
+import Screen from './app/components/Screen';
+import { NavigationContainer, useNavigation } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 
-import * as ImagePicker from 'expo-image-picker';
-import AppButton from './app/components/AppButton';
-import ImageInput from './app/components/ImageInput';
-import ImageInputList from './app/components/lists/ImageInputList';
+const Link = () => {
+  const navigation = useNavigation();
 
-// const categories = [
-//   { label: 'Furniture', value: 1},
-//   { label: 'Clothing', value: 2},
-//   { label: 'Cameras', value: 3},
-// ]
+  return (
+    <Button
+      title='View Tweet'
+      onPress={() => navigation.navigate('TweetDetails', { id: 1 })}
+    />
+  )
+}
+
+const Tweets = ({ navigation }) => (
+  <Screen>
+    <Text>Tweets</Text>
+    <Link />
+  </Screen>
+)
+
+const TweetDetails = ({ route }) => (
+  <Screen>
+    <Text>TweetDetails: {route?.params?.id}</Text>
+  </Screen>
+)
+
+const Stack = createStackNavigator();
+const StackNavigator = () => (
+  <Stack.Navigator
+    screenOptions={{
+      headerStyle: { backgroundColor: 'purple' },
+      headerTintColor: 'white',
+    }}
+  >
+    <Stack.Screen
+      name='Tweets'
+      component={Tweets}
+    />
+    <Stack.Screen
+      name='TweetDetails'
+      component={TweetDetails}
+      options={({ route }) => ({ title: route.params.id })}
+    />
+  </Stack.Navigator>
+)
+
+const Tab = createMaterialBottomTabNavigator();
+
+const TabNavigator = () => (
+  <Tab.Navigator>
+    <Tab.Screen name='Feed' component={Tweets}/>
+    <Tab.Screen name='FeedDetails' component={TweetDetails}/>
+  </Tab.Navigator>
+)
 
 const App = () => {
-  // const [category, setCategory] = useState('');
-  // const [imageUris, setImageUris] = useState([]);
-
-  // const handleRemove = (uri) => {
-  //   setImageUris(imageUris.filter(imageUri => imageUri !== uri))
-  // }
-
-  // const handleAdd = (uri) => {
-  //   setImageUris([...imageUris, uri])
-  // }
 
   return (
     <GestureHandlerRootView>
-      <View>
-        {/* <WelcomeScreen /> */}
-        {/* <ListingDetailsScreen /> */}
-        {/* <ViewImageScreen /> */}
-        {/* <MessagesScreen /> */}
-        {/* <ListItem
-          title={'Pratik Tarkasband'}
-          // subTitle={'5 Listings'}
-          IconComponent={<Icon
-            name='email'
-            size={50} />} image={undefined} subTitle={undefined} onPress={undefined} renderRightActions={undefined} /> */}
-        {/* <Icon 
-          name='email'
-          size={100}
-          // backgroundColor='red'
-          // iconColor='white'
-        /> */}
-        {/* <AccountScreen /> */}
-        {/* <ListingsScreen /> */}
-        {/* <AppTextInput icon={'email'} placeHolder="Username" />
-        <AppPicker
-            selectedItem={category}
-            onSelectItem={(item: any) => setCategory(item)}
-            items={categories} icon={'apps'} placeholder={'Category'} /> */}
-        {/* <LoginScreen /> */}
-        <ListingEditScreen />
-        {/* <AppButton title={'Select Image'} onPress={selectImage} />
-        {imageUri && <Image resizeMode='contain' source={{ uri: imageUri }} style={{ width: '50%', height: '50%' }}/>} */}
-        {/* <ImageInputList
-          imageUris={imageUris}
-          onRemoveImage={handleRemove}
-          onAddImage={handleAdd}
-        /> */}
-      </View>
+      <NavigationContainer>
+        {/* <StackNavigator /> */}
+        <TabNavigator />
+      </NavigationContainer>
     </GestureHandlerRootView>
   )
 }
