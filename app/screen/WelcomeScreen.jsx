@@ -6,17 +6,17 @@ import AppText from '../components/AppText';
 const WelcomeImage = require('../assets/welcome.jpg');
 const Logo = require('../assets/logo.png');
 
-const WelcomeScreen = () => {
+const WelcomeScreen = ({ navigation }) => {
   return (
     <ImageBackground blurRadius={6} style={styles.background} source={WelcomeImage}>
             {/* <AppText>I love react native</AppText> */}
         <View style={styles.logoContainer}>
             <Image style={styles.logo} source={Logo}/>
-            <AppText style={style.tagLine}>Sell What You Don't Need</AppText>
+            <AppText style={styles.tagLine}>Sell What You Don't Need</AppText>
         </View>
         <View style={styles.btnContainer}>
-            <AppButton title={'Login'} />
-            <AppButton title={'Register'} color='dangerBtn'/>
+            <AppButton title={'Login'} onPress={() => navigation.navigate('Login')} />
+            <AppButton title={'Register'} color='dangerBtn' onPress={() => navigation.navigate('Register')}/>
         </View>
     </ImageBackground>
   )
@@ -46,7 +46,9 @@ const styles = StyleSheet.create({
         height: 100
     },
     tagLine: {
-        paddingVertical: 10
+        paddingVertical: 10,
+        fontSize: 22,
+        fontWeight: 'bold'
     }
 })
 

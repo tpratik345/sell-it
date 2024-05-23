@@ -26,28 +26,31 @@ const listings = [
 ]
 
 const ListingsScreen = () => {
-  return (
-    <Screen style={styles.screen}>
-        <FlatList
-            data={listings}
-            keyExtractor={item => item.id.toString()}
-            renderItem={({item}) => 
-                <Card 
-                    title={item.title}
-                    subTitle={"$" + item.price}
-                    image={item.image}
+    return (
+        <Screen>
+            <View style={styles.screen}>
+                <FlatList
+                    data={listings}
+                    keyExtractor={item => item.id.toString()}
+                    renderItem={({ item }) =>
+                        <Card
+                            title={item.title}
+                            subTitle={"$" + item.price}
+                            image={item.image}
+                        />
+                    }
                 />
-            }
-        />
-    </Screen>
-  )
+            </View>
+        </Screen>
+    )
 }
 
 export default ListingsScreen
 
 const styles = StyleSheet.create({
     screen: {
-        padding: 20,
+        paddingHorizontal: 10,
+        paddingVertical: 5,
         backgroundColor: colors.light
     }
 })
