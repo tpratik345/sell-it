@@ -3,13 +3,13 @@ import React from 'react'
 import colors from '../config/colors'
 import defaultStyles from '../config/defaultStyles'
 
-const AppButton = ({ title, onPress, color='primaryBtn'}) => {
+const AppButton = ({ title, onPress, color=colors.primary}) => {
   return (
     // <View style={[styles.container]}>
     //     <Button color={colors[color]} title={title} onPress={onPress}></Button>
     // </View>
     <TouchableOpacity
-      style={[styles.container, { backgroundColor: colors[color] }]}
+      style={[styles.container, { backgroundColor: color }]}
       onPress={onPress} >
       <Text style={styles.text}>{title}</Text>
     </TouchableOpacity>

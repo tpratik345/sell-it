@@ -18,7 +18,7 @@ const WelcomeScreen = ({ navigation }) => {
                 </View>
                 <View style={styles.btnContainer}>
                     <AppButton title={'Login'} onPress={() => navigation.navigate('Login')} />
-                    <AppButton title={'Register'} color='dangerBtn' onPress={() => navigation.navigate('Register')} />
+                    <AppButton title={'Register'} color={colors.dangerBtn} onPress={() => navigation.navigate('Register')} />
                 </View>
             </ImageBackground>
         </Screen>
